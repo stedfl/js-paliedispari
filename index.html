@@ -4,12 +4,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <title>Pali e Dispari</title>
 </head>
-<body>
-  <h2 class="output-palindromico"></h2>
-  <h2 class="output-winner"></h2>
+<body class="bg-info">
+  <div class="main-wrapper h-100 w-100 d-flex justify-content-center align-items-center">
+    <div class="w-25 mt-5">
+      <h2>
+        GAME PAROLE PALINDROME
+      </h2>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Inserisci una parola per controllare sia palindroma</label>
+          <input type="text" class="form-control" id="user-word" placeholder="Inserisci una parola">
+        </div>
+        <button id="input-word" type="button" class="btn btn-primary mb-3">Controlla</button>
+      </form>
+      <p class="output-palindromico"></p>
+      <h2 class="mt-5">
+        GAME PARI O DISPARI
+      </h2>
+      <form>
+        <label class="form-label">Scegli pari o dispari</label>
+        <select class="form-select mb-3" id="choice">
+          <option selected>Scegli</option>
+          <option value="pari">Pari</option>
+          <option value="dispari">Dispari</option>
+        </select>
+        <div class="mb-3">
+          <label class="form-label">Inserisci un numero da 1 a 5</label>
+          <input type="number" class="form-control" id="user-numb" placeholder="Inserisci un numero">
+        </div>
+        <button type="button" id="input" class="btn btn-primary mb-3">Clicca per vedere chi vince</button>
+      </form>
+      <p class="output-winner"></p>
+    </div>
+  </div>
+
   <script src="js/script.js"></script>
 </body>
 </html>
