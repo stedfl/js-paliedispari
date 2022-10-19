@@ -8,9 +8,15 @@ const btnInput = document.getElementById("input");
 btnInput.addEventListener("click", function() {
   const dispPar = document.getElementById("choice").value;
   const userNumb = parseInt(document.getElementById("user-numb").value);
-  const pcNumb = randomNumb();
-  const sum = userNumb + pcNumb;
-  document.querySelector(".output-winner").innerText = gameNumber(dispPar, sum, pcNumb);
+  if (isNaN(userNumb)) {
+    alert('Inserire un numero');
+  } else if (userNumb < 1 || userNumb > 5) {
+    alert('Inserire un numero tra 1 e 5');
+  } else {
+    const pcNumb = randomNumb();
+    const sum = userNumb + pcNumb;
+    document.querySelector(".output-winner").innerText = gameNumber(dispPar, sum, pcNumb);
+  }
 });
 
 function palindromWord(word) {
