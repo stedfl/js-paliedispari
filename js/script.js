@@ -1,5 +1,17 @@
-const word = prompt("Scrivi una parola per controllare sia palindroma");
-document.querySelector(".output-palindromico").innerText = palindromWord(word);
+const btnWord = document.getElementById("input-word");
+btnWord.addEventListener("click", function() {
+  const word = document.getElementById("user-word").value.toLowerCase();
+  document.querySelector(".output-palindromico").innerText = palindromWord(word);
+})
+
+const btnInput = document.getElementById("input");
+btnInput.addEventListener("click", function() {
+  const dispPar = document.getElementById("choice").value;
+  const userNumb = parseInt(document.getElementById("user-numb").value);
+  const pcNumb = randomNumb();
+  const sum = userNumb + pcNumb;
+  document.querySelector(".output-winner").innerText = gameNumber(dispPar, sum, pcNumb);
+});
 
 function palindromWord(word) {
   let revWord = "";
@@ -14,27 +26,14 @@ function palindromWord(word) {
   }
 }
 
-
-const dispPar = prompt("Scrivi pari o dispari").toLowerCase();
-const userNumb = parseInt(prompt("Scegli un numero da 1 a 5"));
-const pcNumb = randomNumb();
-
-console.log("Il tuo numero è " + userNumb);
-console.log("Il numero del pc è " + pcNumb);
-const sum = userNumb + pcNumb;
-console.log("la somma è " + sum);
-console.log("Avevi scelto " + dispPar);
-
-document.querySelector(".output-winner").innerText = gameNumber(dispPar, sum);
-
 function randomNumb() {
   return Math.ceil(Math.random() * 5);
 }
 
-function gameNumber(dispPar, sum) {
+function gameNumber(dispPar, sum, pcNumb) {
   if ((sum % 2) && (dispPar === "dispari") || !(sum % 2) && (dispPar === "pari")) {
-    return "Hai vinto";
+    return `Hai vinto perché il pc ha scelto il numero ${pcNumb} e la somma è ${sum}`;
   } else {
-    return "Hai perso, ha vinto il computer";
+    return `Hai perso perché il pc ha scelto il numero ${pcNumb} e la somma è ${sum}`;
   }
 }
