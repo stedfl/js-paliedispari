@@ -17,15 +17,21 @@ function palindromWord(word) {
 
 const dispPar = prompt("Scrivi pari o dispari").toLowerCase();
 const userNumb = parseInt(prompt("Scegli un numero da 1 a 5"));
-document.querySelector(".output-winner").innerText = gameNumber(dispPar, userNumb);
+const pcNumb = randomNumb();
 
-function gameNumber(dispPar, userNumb) {
-  const pcNumb = Math.ceil(Math.random() * 5);
-  console.log("Il tuo numero è " + userNumb);
-  console.log("Il numero del pc è " + pcNumb);
-  const sum = userNumb + pcNumb;
-  console.log("la somma è " + sum);
-  console.log("Avevi scelto " + dispPar);
+console.log("Il tuo numero è " + userNumb);
+console.log("Il numero del pc è " + pcNumb);
+const sum = userNumb + pcNumb;
+console.log("la somma è " + sum);
+console.log("Avevi scelto " + dispPar);
+
+document.querySelector(".output-winner").innerText = gameNumber(dispPar, sum);
+
+function randomNumb() {
+  return Math.ceil(Math.random() * 5);
+}
+
+function gameNumber(dispPar, sum) {
   if ((sum % 2) && (dispPar === "dispari") || !(sum % 2) && (dispPar === "pari")) {
     return "Hai vinto";
   } else {
