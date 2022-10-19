@@ -1,27 +1,15 @@
-const word = "ella";
-const wordArray = [];
-  for (let i = 0; i < word.length; i++) {
-    wordArray.push(word[i]);
-  }
-console.log(wordArray);
-const revWordArray = wordArray.reverse();
-console.log(revWordArray);
-  let isPalindroma = false;
-  for (let c = 0; c < wordArray.length; c++) {
-    console.log("Word: " + wordArray[c]);
-    console.log("reverse: " + revWordArray[c]);
-    if (wordArray[c] === revWordArray[c]) {
-      isPalindroma = true;
-    }
-    else {
-      (isPalindroma = false);
-      c = wordArray.length;
-    }
+const word = prompt("Scrivi una parola per controllare sia palindroma");
+document.querySelector(".output").innerText = palindromWord(word);
+
+function palindromWord(word) {
+  let revWord = "";
+  for (let i = word.length-1; i >= 0; i--) {
+    revWord += word[i];
   }
 
-  console.log(isPalindroma);
-  if (isPalindroma === true) {
-    console.log("La parola è palindroma")
+  if (word === revWord) {
+    return `La parola ${word} è palindroma`
   } else {
-    console.log("La parola non è palindroma")
+    return `La parola ${word} non è palindroma`
   }
+}
