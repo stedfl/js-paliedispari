@@ -1,6 +1,6 @@
 const btnWord = document.getElementById("input-word");
 btnWord.addEventListener("click", function() {
-  const word = document.getElementById("user-word").value.toLowerCase();
+  const word = document.getElementById("user-word").value.toLowerCase().trim();
   document.querySelector(".output-palindromico").innerText = palindromWord(word);
 })
 
